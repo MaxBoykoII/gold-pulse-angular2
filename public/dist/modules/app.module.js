@@ -31,7 +31,9 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
-                forms_1.FormsModule],
+                forms_1.FormsModule,
+                http_1.HttpModule
+            ],
             declarations: [exploration_viewer_1.ExplorationViewer,
                 date_component_1.DateComponent,
                 stock_table_1.StockTable,
@@ -41,11 +43,13 @@ var AppModule = (function () {
                 custom_percent_pipe_1.CustomPercentPipe,
                 metric_pipe_1.MetricPipe,
                 threshold_pipe_1.ThresholdPipe,
-                format_pipe_1.FormatPipe],
-            providers: [http_1.HTTP_PROVIDERS,
+                format_pipe_1.FormatPipe
+            ],
+            providers: [
                 data_service_1.DataService,
                 date_service_1.DateService,
-                quantile_service_1.QuantileService],
+                quantile_service_1.QuantileService
+            ],
             bootstrap: [exploration_viewer_1.ExplorationViewer]
         }), 
         __metadata('design:paramtypes', [])

@@ -24,8 +24,14 @@
     <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Load minified bundle -->
-    <script src="./dist/bundle.js"></script>
+    <!-- Load System js and its configuration -->
+    <script src="./lib/systemjs/dist/system.src.js"></script>
+    <script src="./systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function(err) {
+            console.error(err);
+        });
+    </script>
 </body>
 
 </html>

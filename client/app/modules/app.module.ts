@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HTTP_PROVIDERS } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 /* Component imports */
 import { DateComponent } from '../components/date.component';
@@ -24,24 +24,27 @@ import { ThresholdPipe } from '../pipes/threshold.pipe';
 import { FormatPipe } from '../pipes/format.pipe';
 
 @NgModule({
-    imports: [BrowserModule, 
-              FormsModule],
-    declarations: [ExplorationViewer, 
-                   DateComponent, 
-                   StockTable, 
-                   ShortenPipe, 
-                   MatchPipe, 
-                   SortPipe,
-                   CustomPercentPipe, 
-                   MetricPipe, 
-                   ThresholdPipe, 
-                   FormatPipe],
-    providers: [HTTP_PROVIDERS, 
-                DataService, 
-                DateService, 
-                QuantileService],
+    imports: [BrowserModule,
+        FormsModule,
+        HttpModule
+    ],
+    declarations: [ExplorationViewer,
+        DateComponent,
+        StockTable,
+        ShortenPipe,
+        MatchPipe,
+        SortPipe,
+        CustomPercentPipe,
+        MetricPipe,
+        ThresholdPipe,
+        FormatPipe
+    ],
+    providers: [
+        DataService,
+        DateService,
+        QuantileService
+    ],
     bootstrap: [ExplorationViewer]
 })
 
 export class AppModule {}
-

@@ -1,6 +1,6 @@
 {
   "name": "zone.js",
-  "version": "0.6.15",
+  "version": "0.6.21",
   "description": "Zones for JavaScript",
   "main": "dist/zone-node.js",
   "browser": "dist/zone.js",
@@ -14,12 +14,11 @@
     "test": "test"
   },
   "scripts": {
-    "prepublish": "typings install && ./node_modules/.bin/tsc && gulp build",
-    "typings": "typings install",
+    "prepublish": "tsc && gulp build",
     "ws-server": "node ./test/ws-server.js",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "test": "karma start karma.conf.js",
+    "test": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run ws-server\" \"karma start karma.conf.js\"",
     "test-node": "gulp test/node",
     "serve": "python -m SimpleHTTPServer 8000"
   },
@@ -36,9 +35,14 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/jasmine": "^2.2.33",
+    "@types/node": "^6.0.38",
+    "@types/systemjs": "^0.19.30",
+    "concurrently": "^2.2.0",
     "es6-promise": "^3.0.2",
     "gulp": "^3.8.11",
     "gulp-rename": "^1.2.2",
+    "gulp-rollup": "^2.3.0",
     "gulp-tsc": "^1.1.4",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.7",
@@ -53,16 +57,16 @@
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
     "nodejs-websocket": "^1.2.0",
+    "pump": "^1.0.1",
+    "systemjs": "^0.19.37",
     "ts-loader": "^0.6.0",
-    "typescript": "^1.8.0",
-    "typings": "^0.7.12",
-    "webpack": "^1.12.2"
+    "typescript": "^2.0.2"
   },
-  "gitHead": "02a41c0a04f1cdd032915448652cf2dd48893fbc",
+  "gitHead": "de318ceb2bf640c4fd4c4762f721ba855cfe5d0a",
   "homepage": "https://github.com/angular/zone.js#readme",
-  "_id": "zone.js@0.6.15",
-  "_shasum": "e30be380c89dc8de3f70b7f599bb55882e6fd328",
-  "_from": "zone.js@0.6.15",
+  "_id": "zone.js@0.6.21",
+  "_shasum": "beebbff30480e6bc975cbbb4eedc750c3080328e",
+  "_from": "zone.js@0.6.21",
   "_npmVersion": "3.7.3",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -70,8 +74,8 @@
     "email": "angular-core+npm@google.com"
   },
   "dist": {
-    "shasum": "e30be380c89dc8de3f70b7f599bb55882e6fd328",
-    "tarball": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.15.tgz"
+    "shasum": "beebbff30480e6bc975cbbb4eedc750c3080328e",
+    "tarball": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.21.tgz"
   },
   "maintainers": [
     {
@@ -85,7 +89,7 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/zone.js-0.6.15.tgz_1471627240048_0.9166294175665826"
+    "tmp": "tmp/zone.js-0.6.21.tgz_1473560851278_0.4516061895992607"
   },
-  "_resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.15.tgz"
+  "_resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.21.tgz"
 }
