@@ -59,6 +59,51 @@ var Stock = (function () {
         }
         return sum / count;
     };
+    Stock.sort = function (stocks, sid, metaDefs) {
+        if (sid) {
+            var metaDef = metaDefs.find(function (mdef) { return mdef.sid === sid; });
+            var reverse = metaDef.is_rev_sort;
+            var alpha_1 = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
+            if (stocks && stocks.length && sid) {
+                stocks.sort(function (s1, s2) {
+                    var a = s1[sid], b = s2[sid];
+                    if (a < b) {
+                        return -1 * alpha_1;
+                    }
+                    else if (a > b) {
+                        return 1 * alpha_1;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+            }
+        }
+        return stocks;
+    };
+    Stock.filter = function (stocks, thresholds) {
+        var copy = stocks.slice();
+        var _loop_3 = function(threshold) {
+            var sid = threshold.sid;
+            var val = threshold.val;
+            var sign = threshold.sign;
+            switch (sign) {
+                case 'gt':
+                    _.remove(copy, function (stock) { return stock[sid] < val; });
+                    break;
+                case 'lt':
+                    _.remove(copy, function (stock) { return stock[sid] > val; });
+                    break;
+                case 'eq':
+                    _.remove(copy, function (stock) { return stock[sid] !== val; });
+            }
+        };
+        for (var _i = 0, thresholds_1 = thresholds; _i < thresholds_1.length; _i++) {
+            var threshold = thresholds_1[_i];
+            _loop_3(threshold);
+        }
+        return copy;
+    };
     return Stock;
 }());
 exports.Stock = Stock;

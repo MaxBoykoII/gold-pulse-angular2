@@ -1,23 +1,11 @@
 import * as _ from 'lodash';
 
-import {
-    ApiDate
-}
-from '../interfaces/api-date';
+import { ApiDate } from '../interfaces/api-date';
 
-import {
-    Stock
-}
-from '../classes/stock';
+import { Stock } from '../classes/stock';
 
-import {
-    Injectable
-}
-from '@angular/core';
-import {
-    Http
-}
-from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()

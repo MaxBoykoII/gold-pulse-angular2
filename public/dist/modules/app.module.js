@@ -18,6 +18,7 @@ var stock_table_1 = require('../components/stock.table');
 var data_service_1 = require('../services/data.service');
 var date_service_1 = require('../services/date.service');
 var quantile_service_1 = require('../services/quantile.service');
+var coloring_service_1 = require('../services/coloring.service');
 var shorten_pipe_1 = require('../pipes/shorten.pipe');
 var match_pipe_1 = require('../pipes/match.pipe');
 var sort_pipe_1 = require('../pipes/sort.pipe');
@@ -48,7 +49,8 @@ var AppModule = (function () {
             providers: [
                 data_service_1.DataService,
                 date_service_1.DateService,
-                quantile_service_1.QuantileService
+                quantile_service_1.QuantileService,
+                coloring_service_1.ColoringService
             ],
             bootstrap: [exploration_viewer_1.ExplorationViewer]
         }), 

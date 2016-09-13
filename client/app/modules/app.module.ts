@@ -13,6 +13,7 @@ import { StockTable } from '../components/stock.table';
 import { DataService } from '../services/data.service';
 import { DateService } from '../services/date.service';
 import { QuantileService } from '../services/quantile.service';
+import { ColoringService } from '../services/coloring.service';
 
 /* Pipe imports */
 import { ShortenPipe } from '../pipes/shorten.pipe';
@@ -42,7 +43,8 @@ import { FormatPipe } from '../pipes/format.pipe';
     providers: [
         DataService,
         DateService,
-        QuantileService
+        QuantileService,
+        ColoringService
     ],
     bootstrap: [ExplorationViewer]
 })

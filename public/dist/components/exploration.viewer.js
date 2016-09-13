@@ -99,6 +99,9 @@ var ExplorationViewer = (function () {
         });
         this._dataService.getData(this.currentDate).subscribe(function (processedData) {
             _this.stocks = processedData[0], _this.metaDefs = processedData[1], _this.futureDates = processedData[2], _this.cpMetaDefs = processedData[3], _this.benchmarks = processedData[4];
+            if (_this.spread !== 0) {
+                _this.modifySpread(_this.spread);
+            }
         });
     };
     ExplorationViewer = __decorate([

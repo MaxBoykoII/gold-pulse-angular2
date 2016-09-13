@@ -9,32 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var _ = require('lodash');
+var stock_1 = require('../classes/stock');
 var ThresholdPipe = (function () {
     function ThresholdPipe() {
     }
     ThresholdPipe.prototype.transform = function (stocks, thresholds) {
-        var copy = stocks.slice();
-        var _loop_1 = function(threshold) {
-            var sid = threshold.sid;
-            var val = threshold.val;
-            var sign = threshold.sign;
-            switch (sign) {
-                case 'gt':
-                    _.remove(copy, function (stock) { return stock[sid] < val; });
-                    break;
-                case 'lt':
-                    _.remove(copy, function (stock) { return stock[sid] > val; });
-                    break;
-                case 'eq':
-                    _.remove(copy, function (stock) { return stock[sid] !== val; });
-            }
-        };
-        for (var _i = 0, thresholds_1 = thresholds; _i < thresholds_1.length; _i++) {
-            var threshold = thresholds_1[_i];
-            _loop_1(threshold);
-        }
-        return copy;
+        return stock_1.Stock.filter(stocks, thresholds);
     };
     ThresholdPipe = __decorate([
         core_1.Pipe({

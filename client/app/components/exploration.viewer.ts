@@ -149,6 +149,9 @@ export class ExplorationViewer {
 
     this._dataService.getData(this.currentDate).subscribe((processedData) => {
       [this.stocks, this.metaDefs, this.futureDates, this.cpMetaDefs, this.benchmarks] = processedData;
+      if (this.spread !== 0) {
+        this.modifySpread(this.spread);
+      }
     });
   }
 }

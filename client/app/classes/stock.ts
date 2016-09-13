@@ -1,9 +1,6 @@
 import * as _ from 'lodash';
 
-import {
-    ApiDate
-}
-from '../interfaces/api-date';
+import { ApiDate } from '../interfaces/api-date';
 
 export class Stock {
     closes: Array < any > ;
@@ -68,5 +65,56 @@ export class Stock {
         }
         return sum / count;
 
+    }
+    static sort(stocks: Stock[], sid: string, metaDefs: Array < any > ) {
+        if (sid) {
+            const metaDef = metaDefs.find(mdef => mdef.sid === sid);
+            const reverse = metaDef.is_rev_sort;
+            const alpha = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
+
+            /*If sid refers to name or ticker or a metric with reverse sorting order, sort in descending order; 
+             *otherwise, sort in ascending order.
+             *Hence the need for alpha.
+             */
+
+            if (stocks && stocks.length && sid) {
+                stocks.sort((s1, s2) => {
+                    const a = s1[sid],
+                        b = s2[sid];
+
+                    if (a < b) {
+                        return -1 * alpha;
+                    }
+                    else if (a > b) {
+                        return 1 * alpha;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+            }
+        }
+        return stocks;
+    }
+    static filter(stocks, thresholds) {
+        let copy = stocks.slice();
+
+        for (let threshold of thresholds) {
+            const sid = threshold.sid;
+            const val = threshold.val;
+            const sign = threshold.sign;
+            switch (sign) {
+                case 'gt':
+                    _.remove(copy, stock => stock[sid] < val);
+                    break;
+                case 'lt':
+                    _.remove(copy, stock => stock[sid] > val);
+                    break;
+                case 'eq':
+                    _.remove(copy, stock => stock[sid] !== val);
+            }
+        }
+
+        return copy;
     }
 }

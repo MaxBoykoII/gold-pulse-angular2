@@ -15,7 +15,7 @@
                 <td> Reference Date</td>
                 <td> Limit</td>
                 <td> Spread</td>
-                <td *ngFor='let metaDef of metaDefs | metric' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='set($event, metaDef.sid)'>{{metaDef.short}}</a></td>
+                <td *ngFor='let metaDef of metaDefs | metric' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='select($event, metaDef.sid)' data-toggle="tooltip" [title]="metaDef.full">{{metaDef.short}}</a></td>
                 <td *ngFor='let cpMetaDef of cpMetaDefs'>{{cpMetaDef.short}}</td>
             </tr>
         </thead>
@@ -36,9 +36,9 @@
         <thead>
             <tr>
                 <td>#</td>
-                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='set($event, metaDef.sid)' data-toggle="tooltip" [title]="metaDef.full">{{metaDef.short}}</a></td>
+                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='select($event, metaDef.sid)' data-toggle="tooltip" [title]="metaDef.full">{{metaDef.short}}</a></td>
                 <td *ngFor='let ymd of futureDates'>{{ymd}}</td>
-                <td *ngIf='futureDates.length'>Average</td>
+                <td *ngIf='futureDates.length > 1'>Average</td>
             </tr>
         </thead>
         <tbody *ngIf='stocks.length'>
@@ -46,7 +46,7 @@
                 <td>{{i + 1}}</td>
                 <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid' [class.table-right]="metaDef.sid !== 't' && metaDef.sid !== 'n'">{{stock[metaDef.sid] | format : metaDef.ordinal}}</td>
                 <td *ngFor='let ymd of futureDates' [ngClass]='colorDates(stock, ymd)' class='table-right'>{{stock.closes | match: ymd}}</td>
-                <td *ngIf='futureDates.length' [ngClass]='colorStockAvg(stock)'>{{stockAverages[stock.id] | cpercent}}</td>
+                <td *ngIf='futureDates.length > 1' [ngClass]='colorStockAvg(stock)'>{{stockAverages[stock.id] | cpercent}}</td>
             </tr>
         </tbody>
     </table>
