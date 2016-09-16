@@ -1,7 +1,7 @@
 {
   "name": "@angular/common",
-  "version": "2.0.0-rc.6",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Angular - commonly needed directives and services",
   "main": "bundles/common.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "^2.0.0-rc.6"
+    "@angular/core": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,11 @@
     "url": "https://github.com/angular/angular/issues"
   },
   "homepage": "https://github.com/angular/angular#readme",
-  "_id": "@angular/common@2.0.0-rc.6",
+  "_id": "@angular/common@2.0.0",
   "scripts": {},
-  "_shasum": "83a0b563a77c84f4765e6e1552382a0caf0eef3c",
-  "_from": "@angular/common@2.0.0-rc.6",
-  "_resolved": "https://registry.npmjs.org/@angular/common/-/common-2.0.0-rc.6.tgz",
+  "_shasum": "6d5b38cef8bec69726590f395da10c2d89146247",
+  "_from": "@angular/common@2.0.0",
+  "_resolved": "https://registry.npmjs.org/@angular/common/-/common-2.0.0.tgz",
   "_npmVersion": "3.9.2",
   "_nodeVersion": "5.4.1",
   "_npmUser": {
@@ -32,8 +32,8 @@
     "email": "angular-core+npm@google.com"
   },
   "dist": {
-    "shasum": "83a0b563a77c84f4765e6e1552382a0caf0eef3c",
-    "tarball": "https://registry.npmjs.org/@angular/common/-/common-2.0.0-rc.6.tgz"
+    "shasum": "6d5b38cef8bec69726590f395da10c2d89146247",
+    "tarball": "https://registry.npmjs.org/@angular/common/-/common-2.0.0.tgz"
   },
   "maintainers": [
     {
@@ -42,9 +42,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/common-2.0.0-rc.6.tgz_1472686595816_0.17442426388151944"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/common-2.0.0.tgz_1473906728474_0.9663767674937844"
   },
-  "directories": {},
-  "readme": "ERROR: No README data found!"
+  "directories": {}
 }

@@ -1,7 +1,7 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "2.0.0-rc.6",
-  "description": "Angular 2 platform-browser-dynamic",
+  "version": "2.0.0",
+  "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "main": "bundles/platform-browser-dynamic.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -10,10 +10,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "^2.0.0-rc.6",
-    "@angular/common": "^2.0.0-rc.6",
-    "@angular/compiler": "^2.0.0-rc.6",
-    "@angular/platform-browser": "^2.0.0-rc.6"
+    "@angular/core": "^2.0.0",
+    "@angular/common": "^2.0.0",
+    "@angular/compiler": "^2.0.0",
+    "@angular/platform-browser": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,11 @@
     "url": "https://github.com/angular/angular/issues"
   },
   "homepage": "https://github.com/angular/angular#readme",
-  "_id": "@angular/platform-browser-dynamic@2.0.0-rc.6",
+  "_id": "@angular/platform-browser-dynamic@2.0.0",
   "scripts": {},
-  "_shasum": "f37605fe2e666c6782267a1d7fe268f9ef1ada17",
-  "_from": "@angular/platform-browser-dynamic@2.0.0-rc.6",
-  "_resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0-rc.6.tgz",
+  "_shasum": "2ee3f2bb08b4864902c5b7c283f77863c89d8715",
+  "_from": "@angular/platform-browser-dynamic@2.0.0",
+  "_resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0.tgz",
   "_npmVersion": "3.9.2",
   "_nodeVersion": "5.4.1",
   "_npmUser": {
@@ -35,8 +35,8 @@
     "email": "angular-core+npm@google.com"
   },
   "dist": {
-    "shasum": "f37605fe2e666c6782267a1d7fe268f9ef1ada17",
-    "tarball": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0-rc.6.tgz"
+    "shasum": "2ee3f2bb08b4864902c5b7c283f77863c89d8715",
+    "tarball": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0.tgz"
   },
   "maintainers": [
     {
@@ -45,9 +45,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/platform-browser-dynamic-2.0.0-rc.6.tgz_1472686629007_0.46484073251485825"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/platform-browser-dynamic-2.0.0.tgz_1473906758552_0.013343805447220802"
   },
-  "directories": {},
-  "readme": "ERROR: No README data found!"
+  "directories": {}
 }

@@ -1,7 +1,7 @@
 {
   "name": "@angular/http",
-  "version": "2.0.0-rc.6",
-  "description": "Angular 2 http",
+  "version": "2.0.0",
+  "description": "Angular - the http service",
   "main": "bundles/http.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -10,9 +10,9 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "rxjs": "5.0.0-beta.11",
-    "@angular/core": "^2.0.0-rc.6",
-    "@angular/platform-browser": "^2.0.0-rc.6"
+    "rxjs": "5.0.0-beta.12",
+    "@angular/core": "^2.0.0",
+    "@angular/platform-browser": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -22,11 +22,11 @@
     "url": "https://github.com/angular/angular/issues"
   },
   "homepage": "https://github.com/angular/angular#readme",
-  "_id": "@angular/http@2.0.0-rc.6",
+  "_id": "@angular/http@2.0.0",
   "scripts": {},
-  "_shasum": "6589012b0096aa8f65b83d7d52db6942374f31db",
-  "_from": "@angular/http@latest",
-  "_resolved": "https://registry.npmjs.org/@angular/http/-/http-2.0.0-rc.6.tgz",
+  "_shasum": "ee3206cd1683581dd57dabba93c0e23af19b4732",
+  "_from": "@angular/http@2.0.0",
+  "_resolved": "https://registry.npmjs.org/@angular/http/-/http-2.0.0.tgz",
   "_npmVersion": "3.9.2",
   "_nodeVersion": "5.4.1",
   "_npmUser": {
@@ -34,8 +34,8 @@
     "email": "angular-core+npm@google.com"
   },
   "dist": {
-    "shasum": "6589012b0096aa8f65b83d7d52db6942374f31db",
-    "tarball": "https://registry.npmjs.org/@angular/http/-/http-2.0.0-rc.6.tgz"
+    "shasum": "ee3206cd1683581dd57dabba93c0e23af19b4732",
+    "tarball": "https://registry.npmjs.org/@angular/http/-/http-2.0.0.tgz"
   },
   "maintainers": [
     {
@@ -45,7 +45,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/http-2.0.0-rc.6.tgz_1472686619438_0.29474336141720414"
+    "tmp": "tmp/http-2.0.0.tgz_1473906751014_0.6510814058128744"
   },
-  "directories": {}
+  "directories": {},
+  "readme": "ERROR: No README data found!"
 }

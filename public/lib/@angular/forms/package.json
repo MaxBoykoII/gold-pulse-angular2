@@ -1,7 +1,7 @@
 {
   "name": "@angular/forms",
-  "version": "2.0.0-rc.6",
-  "description": "Angular 2 forms",
+  "version": "2.0.0",
+  "description": "Angular - directives and services for creating forms",
   "main": "bundles/forms.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "^2.0.0-rc.6",
-    "@angular/common": "^2.0.0-rc.6"
+    "@angular/core": "^2.0.0",
+    "@angular/common": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,11 @@
     "url": "https://github.com/angular/angular/issues"
   },
   "homepage": "https://github.com/angular/angular#readme",
-  "_id": "@angular/forms@2.0.0-rc.6",
+  "_id": "@angular/forms@2.0.0",
   "scripts": {},
-  "_shasum": "28fbcd6ff54ce8995f240b0537a52ef66d57d2ae",
-  "_from": "@angular/forms@2.0.0-rc.6",
-  "_resolved": "https://registry.npmjs.org/@angular/forms/-/forms-2.0.0-rc.6.tgz",
+  "_shasum": "4f472223f61aec49f27575ef49b0d6cac3be1e31",
+  "_from": "@angular/forms@2.0.0",
+  "_resolved": "https://registry.npmjs.org/@angular/forms/-/forms-2.0.0.tgz",
   "_npmVersion": "3.9.2",
   "_nodeVersion": "5.4.1",
   "_npmUser": {
@@ -33,8 +33,8 @@
     "email": "angular-core+npm@google.com"
   },
   "dist": {
-    "shasum": "28fbcd6ff54ce8995f240b0537a52ef66d57d2ae",
-    "tarball": "https://registry.npmjs.org/@angular/forms/-/forms-2.0.0-rc.6.tgz"
+    "shasum": "4f472223f61aec49f27575ef49b0d6cac3be1e31",
+    "tarball": "https://registry.npmjs.org/@angular/forms/-/forms-2.0.0.tgz"
   },
   "maintainers": [
     {
@@ -43,8 +43,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/forms-2.0.0-rc.6.tgz_1472686614765_0.6572851077653468"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/forms-2.0.0.tgz_1473906746795_0.6313772096764296"
   },
   "directories": {}
 }
