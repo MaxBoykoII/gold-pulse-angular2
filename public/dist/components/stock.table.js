@@ -63,7 +63,7 @@ var StockTable = (function () {
     };
     StockTable.prototype.colorMetricAvg = function (metaDef) {
         var sid = metaDef.sid, avg = this.metricAverages[sid], quartiles = this.quartilesMetricAvg;
-        if (this.limit === this.stocks.length || avg === null) {
+        if (this.limit === this.stocks.length || this.displayed && this.displayed.length < this.limit || avg === null) {
             return null;
         }
         else {
@@ -73,6 +73,7 @@ var StockTable = (function () {
     StockTable.prototype.ngOnChanges = function (changes) {
         this.stockAverages = {};
         this.metricAverages = {};
+        this.displayed = this.onDisplay(this.selection);
         for (var _i = 0, _a = this.stocks; _i < _a.length; _i++) {
             var stock = _a[_i];
             this.stockAverages[stock.id] = stock.meanReturn();

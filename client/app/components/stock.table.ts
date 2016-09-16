@@ -87,7 +87,7 @@ export class StockTable {
             avg = this.metricAverages[sid],
             quartiles = this.quartilesMetricAvg;
 
-        if (this.limit === this.stocks.length || avg === null) {
+        if (this.limit === this.stocks.length || this.displayed && this.displayed.length < this.limit || avg === null) {
             return null;
         }
         else {
@@ -98,6 +98,8 @@ export class StockTable {
     ngOnChanges(changes) {
         this.stockAverages = {};
         this.metricAverages = {};
+        this.displayed = this.onDisplay(this.selection);
+     
         for (let stock of this.stocks) {
             this.stockAverages[stock.id] = stock.meanReturn();
         }

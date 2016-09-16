@@ -12,7 +12,10 @@ var core_1 = require('@angular/core');
 var FormatPipe = (function () {
     function FormatPipe() {
     }
-    FormatPipe.prototype.transform = function (value, ordinal) {
+    FormatPipe.prototype.transform = function (value, ordinal, sid) {
+        if (sid === 'c') {
+            return value.toFixed(3);
+        }
         if (!isNaN(value) && !ordinal) {
             return value.toFixed(2);
         }

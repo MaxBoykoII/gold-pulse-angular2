@@ -10,7 +10,8 @@ export class Stock {
         _.assign(this, oids);
     }
     setCloses(futureDates: string[], dates: ApiDate[]): void {
-        /* Method to assign a closing price and a percentage change
+        /* 
+         *Method to assign a closing price and a percentage change
          * relative to stock.close for each future date
          */
         let closes = [];

@@ -1,7 +1,7 @@
 <div class="well table-responsive">
     <table class="table table-striped table-condensed">
         <caption>
-            <p>Average returns by metric for top {{limit}} stocks on {{currentDate}}</p>
+            <p>Average returns by metric for top {{displayed? displayed.length : limit}} stocks on {{currentDate}}</p>
             <br>
             <ul class="legend">
                 <li><span class="q1"></span> Quartile 1</li>
@@ -44,7 +44,7 @@
         <tbody *ngIf='stocks.length'>
             <tr *ngFor='let stock of stocks |threshold: thresholds | sort: selection:metaDefs| slice:0:limit; let i = index'>
                 <td>{{i + 1}}</td>
-                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid' [class.table-right]="metaDef.sid !== 't' && metaDef.sid !== 'n'">{{stock[metaDef.sid] | format : metaDef.ordinal}}</td>
+                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid' [class.table-right]="metaDef.sid !== 't' && metaDef.sid !== 'n'">{{stock[metaDef.sid] | format : metaDef.ordinal : metaDef.sid}}</td>
                 <td *ngFor='let ymd of futureDates' [ngClass]='colorDates(stock, ymd)' class='table-right'>{{stock.closes | match: ymd}}</td>
                 <td *ngIf='futureDates.length > 1' [ngClass]='colorStockAvg(stock)'>{{stockAverages[stock.id] | cpercent}}</td>
             </tr>
