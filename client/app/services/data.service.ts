@@ -49,9 +49,10 @@ export class DataService {
         return benchmarks;
     }
     _processData(raw_data) {
-        const dates: ApiDate[] = raw_data.dates,
-            metaDefs = raw_data.meta_definitions,
-            cpMetaDefs = raw_data.cp_meta_definitions;
+        const dates: ApiDate[] = raw_data.dates;
+        const metaDefs = raw_data.meta_definitions;
+        const cpMetaDefs = raw_data.cp_meta_definitions;
+        const currentDate = dates[0].ymd;
         let stocks = _.head(dates).oids.map(oid => new Stock(oid)),
             futureDates = dates.map((date) => date.ymd);
         futureDates.splice(0, 1); //remove current date from future_dates
@@ -60,7 +61,7 @@ export class DataService {
 
         //add closing prices for the future dates;
         for (let stock of stocks) {
-            stock.setCloses(futureDates, dates);
+            stock.setCloses(futureDates, dates, currentDate);
         }
 
         //Build benchmark averages from cp data;

@@ -4,25 +4,37 @@ var Stock = (function () {
     function Stock(oids) {
         _.assign(this, oids);
     }
-    Stock.prototype.setCloses = function (futureDates, dates) {
+    Stock.prototype.setCloses = function (futureDates, dates, currentDate) {
         var closes = [];
         var _loop_1 = function(ymd) {
             var id = this_1.id;
             var close_1 = this_1.c;
             var oid = dates.find(function (date) { return date.ymd === ymd; }).oids.find(function (oid) { return oid.id === id; });
+            var f = 1;
+            if (oid && oid.rb) {
+                var timestampRef = Date.parse(currentDate);
+                var rollbacks = oid.rb;
+                for (var _i = 0, rollbacks_1 = rollbacks; _i < rollbacks_1.length; _i++) {
+                    var rollback = rollbacks_1[_i];
+                    if (Date.parse(rollback.d) > timestampRef) {
+                        f = f * rollback.f;
+                    }
+                }
+            }
             var futureClose = oid ? oid.c : 'NA';
             var change = (!isNaN(close_1) && close_1 !== 0 && !isNaN(futureClose)) ?
-                (((futureClose - close_1) / close_1) * 100).toFixed(1) + "%" :
+                (((futureClose - (close_1 * f)) / (close_1 * f)) * 100).toFixed(1) + "%" :
                 'NA';
             closes.push({
                 ymd: ymd,
                 close: futureClose,
+                f: f,
                 change: change
             });
         };
         var this_1 = this;
-        for (var _i = 0, futureDates_1 = futureDates; _i < futureDates_1.length; _i++) {
-            var ymd = futureDates_1[_i];
+        for (var _a = 0, futureDates_1 = futureDates; _a < futureDates_1.length; _a++) {
+            var ymd = futureDates_1[_a];
             _loop_1(ymd);
         }
         this.closes = closes;
@@ -35,7 +47,8 @@ var Stock = (function () {
         var _loop_2 = function(ymd) {
             var date = oldCloses.find(function (date) { return date.ymd === ymd; });
             if (!isNaN(date.close) && !isNaN(close) && (close + dollarSpread) > 0) {
-                var modifiedClose = close + dollarSpread, modifiedFutureClose = Math.max(date.close - dollarSpread, 0);
+                var modifiedClose = (close + dollarSpread) * date.f;
+                var modifiedFutureClose = Math.max(date.close - dollarSpread, 0);
                 var change = (((modifiedFutureClose - modifiedClose) / modifiedClose) * 100).toFixed(1) + "%";
                 date.change = change;
             }

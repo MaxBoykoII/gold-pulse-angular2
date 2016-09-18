@@ -48,13 +48,16 @@ var DataService = (function () {
         return benchmarks;
     };
     DataService.prototype._processData = function (raw_data) {
-        var dates = raw_data.dates, metaDefs = raw_data.meta_definitions, cpMetaDefs = raw_data.cp_meta_definitions;
+        var dates = raw_data.dates;
+        var metaDefs = raw_data.meta_definitions;
+        var cpMetaDefs = raw_data.cp_meta_definitions;
+        var currentDate = dates[0].ymd;
         var stocks = _.head(dates).oids.map(function (oid) { return new stock_1.Stock(oid); }), futureDates = dates.map(function (date) { return date.ymd; });
         futureDates.splice(0, 1);
         metaDefs.splice(0, 1);
         for (var _i = 0, stocks_1 = stocks; _i < stocks_1.length; _i++) {
             var stock = stocks_1[_i];
-            stock.setCloses(futureDates, dates);
+            stock.setCloses(futureDates, dates, currentDate);
         }
         var benchmarks = this._buildBenchmarks(cpMetaDefs, futureDates, dates);
         return [stocks, metaDefs, futureDates, cpMetaDefs, benchmarks];

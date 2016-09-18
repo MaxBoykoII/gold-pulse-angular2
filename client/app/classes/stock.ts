@@ -9,9 +9,9 @@ export class Stock {
     constructor(oids: any) {
         _.assign(this, oids);
     }
-    setCloses(futureDates: string[], dates: ApiDate[]): void {
+    setCloses(futureDates: string[], dates: ApiDate[], currentDate: string): void {
         /* 
-         *Method to assign a closing price and a percentage change
+         * Method to assign a closing price and a percentage change
          * relative to stock.close for each future date
          */
         let closes = [];
@@ -19,21 +19,38 @@ export class Stock {
             const id = this.id;
             const close = this.c;
             const oid = dates.find(date => date.ymd === ymd).oids.find(oid => oid.id === id);
+            let f = 1; //Rollback factor; stays 1 if there are no rollbacks.
+            
+            //Check for rollbacks
+            if(oid && oid.rb){
+                const timestampRef = Date.parse(currentDate); //timestamp for currentDate
+                const rollbacks = oid.rb;
+                for(let rollback of rollbacks) {
+                    //If rollback occurred after ref data adjust f
+                    if(Date.parse(rollback.d) > timestampRef){
+                        f = f * rollback.f;
+                    }
+                }
+            
+            }
             const futureClose = oid ? oid.c : 'NA';
             const change = (!isNaN(close) && close !== 0 && !isNaN(futureClose)) ?
-                `${(((futureClose - close)/close)*100).toFixed(1)}%` :
+                `${(((futureClose - (close*f))/(close*f))*100).toFixed(1)}%` :
                 'NA';
 
             closes.push({
                 ymd,
                 close: futureClose,
+                f,
                 change
             });
         }
         this.closes = closes;
     }
     modifySpread(futureDates: string[], spread: number): void {
-        /* Method to adjust the spread */
+        /*
+         * Method to adjust the spread 
+         */
         const dollarSpread = spread / 100;
         const close = this.c;
         const oldCloses = this.closes;
@@ -42,8 +59,8 @@ export class Stock {
         for (let ymd of futureDates) {
             let date = oldCloses.find(date => date.ymd === ymd);
             if (!isNaN(date.close) && !isNaN(close) && (close + dollarSpread) > 0) {
-                const modifiedClose = close + dollarSpread,
-                    modifiedFutureClose = Math.max(date.close - dollarSpread, 0);
+                const modifiedClose = (close + dollarSpread)*date.f;
+                const modifiedFutureClose = Math.max(date.close - dollarSpread, 0);
                 const change = `${(((modifiedFutureClose - modifiedClose)/modifiedClose)*100).toFixed(1)}%`;
                 date.change = change;
             }
@@ -52,9 +69,10 @@ export class Stock {
         this.closes = newCloses;
     }
     meanReturn() {
-        /* Method to calculate the mean return of a stock over this.returns array */
-        //const returns = _.filter(this.closes, day => !isNaN(parseFloat(day.change)));
-        //return (returns.length) ? _.meanBy(returns, day => parseFloat(day.change)) : null;
+        /* 
+         * Method to calculate the mean return of a stock over this.returns array 
+         */
+        
         let sum = 0,
             count = 0;
         for (let day of this.closes) {
@@ -73,9 +91,10 @@ export class Stock {
             const reverse = metaDef.is_rev_sort;
             const alpha = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
 
-            /*If sid refers to name or ticker or a metric with reverse sorting order, sort in descending order; 
-             *otherwise, sort in ascending order.
-             *Hence the need for alpha.
+            /*
+             * If sid refers to name or ticker or a metric with reverse sorting order, sort in descending order; 
+             * otherwise, sort in ascending order.
+             * Hence the need for alpha.
              */
 
             if (stocks && stocks.length && sid) {
