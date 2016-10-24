@@ -1,7 +1,7 @@
 /*
  * A module that contains the default constants for the applications.
  */
-const excluded = ['t', 'n'],
+const excluded = ['t', 'n', 'id'],
     hp = 63,
     hpOptions = [21, 42, 63, 127, 253,380, 503],
     limit = 67,

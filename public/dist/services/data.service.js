@@ -54,7 +54,6 @@ var DataService = (function () {
         var currentDate = dates[0].ymd;
         var stocks = _.head(dates).oids.map(function (oid) { return new stock_1.Stock(oid); }), futureDates = dates.map(function (date) { return date.ymd; });
         futureDates.splice(0, 1);
-        metaDefs.splice(0, 1);
         for (var _i = 0, stocks_1 = stocks; _i < stocks_1.length; _i++) {
             var stock = stocks_1[_i];
             stock.setCloses(futureDates, dates, currentDate);

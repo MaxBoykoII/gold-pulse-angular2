@@ -75533,7 +75533,7 @@ var Stock = (function () {
         if (sid) {
             var metaDef = metaDefs.find(function (mdef) { return mdef.sid === sid; });
             var reverse = metaDef.is_rev_sort;
-            var alpha_1 = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
+            var alpha_1 = (sid === 'n' || sid === 't' || sid === 'id' || reverse) ? 1 : -1;
             if (stocks && stocks.length && sid) {
                 stocks.sort(function (s1, s2) {
                     var a = s1[sid], b = s2[sid];
@@ -75942,7 +75942,7 @@ exports.StockTable = StockTable;
 
 },{"../classes/stock":32,"../constants":36,"../services/coloring.service":46,"../services/quantile.service":49,"@angular/core":3}],36:[function(require,module,exports){
 "use strict";
-var excluded = ['t', 'n'], hp = 63, hpOptions = [21, 42, 63, 127, 253, 380, 503], limit = 67, limitOptions = [25, 37, 50, 67, 75, 100], start = '2015-10-13', jump = 1, jumpOptions = [1, 10, 11, 21, 42, 63, 127, 253], gap = 22, gapOptions = [22, 43, 63, 127, 253], spread = 0, spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1], defaultSelection = 'm3';
+var excluded = ['t', 'n', 'id'], hp = 63, hpOptions = [21, 42, 63, 127, 253, 380, 503], limit = 67, limitOptions = [25, 37, 50, 67, 75, 100], start = '2015-10-13', jump = 1, jumpOptions = [1, 10, 11, 21, 42, 63, 127, 253], gap = 22, gapOptions = [22, 43, 63, 127, 253], spread = 0, spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1], defaultSelection = 'm3';
 exports.excluded = excluded;
 exports.hp = hp;
 exports.hpOptions = hpOptions;
@@ -76338,7 +76338,6 @@ var DataService = (function () {
         var currentDate = dates[0].ymd;
         var stocks = _.head(dates).oids.map(function (oid) { return new stock_1.Stock(oid); }), futureDates = dates.map(function (date) { return date.ymd; });
         futureDates.splice(0, 1);
-        metaDefs.splice(0, 1);
         for (var _i = 0, stocks_1 = stocks; _i < stocks_1.length; _i++) {
             var stock = stocks_1[_i];
             stock.setCloses(futureDates, dates, currentDate);

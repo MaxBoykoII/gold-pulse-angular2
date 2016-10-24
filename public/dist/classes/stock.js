@@ -76,7 +76,7 @@ var Stock = (function () {
         if (sid) {
             var metaDef = metaDefs.find(function (mdef) { return mdef.sid === sid; });
             var reverse = metaDef.is_rev_sort;
-            var alpha_1 = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
+            var alpha_1 = (sid === 'n' || sid === 't' || sid === 'id' || reverse) ? 1 : -1;
             if (stocks && stocks.length && sid) {
                 stocks.sort(function (s1, s2) {
                     var a = s1[sid], b = s2[sid];

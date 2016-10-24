@@ -89,7 +89,7 @@ export class Stock {
         if (sid) {
             const metaDef = metaDefs.find(mdef => mdef.sid === sid);
             const reverse = metaDef.is_rev_sort;
-            const alpha = (sid === 'n' || sid === 't' || reverse) ? 1 : -1;
+            const alpha = (sid === 'n' || sid === 't' || sid === 'id' || reverse) ? 1 : -1;
 
             /*
              * If sid refers to name or ticker or a metric with reverse sorting order, sort in descending order; 

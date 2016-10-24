@@ -56,7 +56,7 @@ export class DataService {
         let stocks = _.head(dates).oids.map(oid => new Stock(oid)),
             futureDates = dates.map((date) => date.ymd);
         futureDates.splice(0, 1); //remove current date from future_dates
-        metaDefs.splice(0, 1); //remove id from metaDefs
+        //metaDefs.splice(0, 1); //remove id from metaDefs
 
 
         //add closing prices for the future dates;
