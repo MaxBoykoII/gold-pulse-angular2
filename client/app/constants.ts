@@ -13,7 +13,7 @@ const excluded = ['t', 'n'],
     gapOptions = [22, 43, 63, 127, 253],
     spread = 0,
     spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1],
-    defaultSelection = null;
+    defaultSelection = 'm3';
 
 export {
     excluded,

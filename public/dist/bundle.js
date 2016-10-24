@@ -75473,7 +75473,7 @@ var Stock = (function () {
                 var rollbacks = oid.rb;
                 for (var _i = 0, rollbacks_1 = rollbacks; _i < rollbacks_1.length; _i++) {
                     var rollback = rollbacks_1[_i];
-                    if (Date.parse(rollback.d) > timestampRef) {
+                    if (Date.parse(rollback.d) > timestampRef && Date.parse(rollback.d) < Date.parse(ymd)) {
                         f = f * rollback.f;
                     }
                 }
@@ -75783,7 +75783,6 @@ var ExplorationViewer = (function () {
         var _this = this;
         this._dataService.config().subscribe(function (configObj) {
             _this.thresholds = configObj.thresholds ? configObj.thresholds : [];
-            _this.thresholdTooltips = configObj.tooltips ? configObj.tooltips : [];
         });
         this._dataService.getData(this.currentDate).subscribe(function (processedData) {
             _this.stocks = processedData[0], _this.metaDefs = processedData[1], _this.futureDates = processedData[2], _this.cpMetaDefs = processedData[3], _this.benchmarks = processedData[4];
@@ -75943,7 +75942,7 @@ exports.StockTable = StockTable;
 
 },{"../classes/stock":32,"../constants":36,"../services/coloring.service":46,"../services/quantile.service":49,"@angular/core":3}],36:[function(require,module,exports){
 "use strict";
-var excluded = ['t', 'n'], hp = 63, hpOptions = [21, 42, 63, 127, 253, 380, 503], limit = 67, limitOptions = [25, 37, 50, 67, 75, 100], start = '2015-10-13', jump = 1, jumpOptions = [1, 10, 11, 21, 42, 63, 127, 253], gap = 22, gapOptions = [22, 43, 63, 127, 253], spread = 0, spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1], defaultSelection = null;
+var excluded = ['t', 'n'], hp = 63, hpOptions = [21, 42, 63, 127, 253, 380, 503], limit = 67, limitOptions = [25, 37, 50, 67, 75, 100], start = '2015-10-13', jump = 1, jumpOptions = [1, 10, 11, 21, 42, 63, 127, 253], gap = 22, gapOptions = [22, 43, 63, 127, 253], spread = 0, spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1], defaultSelection = 'm3';
 exports.excluded = excluded;
 exports.hp = hp;
 exports.hpOptions = hpOptions;

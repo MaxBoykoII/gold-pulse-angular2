@@ -16,7 +16,7 @@ var Stock = (function () {
                 var rollbacks = oid.rb;
                 for (var _i = 0, rollbacks_1 = rollbacks; _i < rollbacks_1.length; _i++) {
                     var rollback = rollbacks_1[_i];
-                    if (Date.parse(rollback.d) > timestampRef) {
+                    if (Date.parse(rollback.d) > timestampRef && Date.parse(rollback.d) < Date.parse(ymd)) {
                         f = f * rollback.f;
                     }
                 }
