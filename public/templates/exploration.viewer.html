@@ -39,7 +39,7 @@
           <!-- /Spread -->
           <!-- Thresholds -->
           <li class=" dropdown" *ngFor='let threshold of thresholds'>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="">{{threshold.short}} {{displayThreshold(threshold.sid)}} <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="" data-toggle="tooltip" [title]="threshold.text?threshold.text : threshold.sid">{{threshold.short}} {{displayThreshold(threshold.sid)}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#" (click)='deactivateThreshold(threshold.sid)'>none</a></li>
               <li *ngFor='let gt of threshold.gt'><a href="#" (click)='activateThreshold(threshold.sid, "gt", gt)'> at least {{gt}}</a></li>

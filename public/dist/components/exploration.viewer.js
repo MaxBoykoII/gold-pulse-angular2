@@ -96,6 +96,7 @@ var ExplorationViewer = (function () {
         var _this = this;
         this._dataService.config().subscribe(function (configObj) {
             _this.thresholds = configObj.thresholds ? configObj.thresholds : [];
+            _this.thresholdTooltips = configObj.tooltips ? configObj.tooltips : [];
         });
         this._dataService.getData(this.currentDate).subscribe(function (processedData) {
             _this.stocks = processedData[0], _this.metaDefs = processedData[1], _this.futureDates = processedData[2], _this.cpMetaDefs = processedData[3], _this.benchmarks = processedData[4];

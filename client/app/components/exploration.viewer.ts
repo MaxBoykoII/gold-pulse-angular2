@@ -1,7 +1,4 @@
-import {
-  Component
-}
-from '@angular/core';
+import { Component } from '@angular/core';
 
 import * as _ from 'lodash';
 
@@ -16,15 +13,6 @@ import {
 }
 from '../constants';
 
-//import subcomponents (directives)
-import {
-  StockTable
-}
-from './stock.table';
-import {
-  DateComponent
-}
-from './date.component';
 
 //import services
 import {
@@ -63,6 +51,7 @@ export class ExplorationViewer {
   cpMetaDefs = []
   benchmarks = {}
   thresholds = []
+  thresholdTooltips: string[]
   activeThresholds = []
   limit = limit
   limitOptions = limitOptions
@@ -79,7 +68,7 @@ export class ExplorationViewer {
     this._dataService.getData(this.currentDate, this.hp).subscribe((processedData) => {
       [this.stocks, this.metaDefs, this.futureDates, this.cpMetaDefs, this.benchmarks] = processedData;
       if (this.limit > this.stocks.length || this.limitOptions.indexOf(this.limit) === -1) {
-        this.limit = this.stocks.length
+        this.limit = this.stocks.length;
       }
 
       if (this.spread !== 0) {
