@@ -16,7 +16,7 @@ var FormatPipe = (function () {
         if (sid === 'c') {
             return value.toFixed(3);
         }
-        if (!isNaN(value) && !ordinal) {
+        if (!isNaN(value) && typeof value === 'number' && !ordinal) {
             return value.toFixed(2);
         }
         return value;
