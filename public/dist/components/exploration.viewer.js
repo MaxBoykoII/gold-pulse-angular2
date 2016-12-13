@@ -28,6 +28,8 @@ var ExplorationViewer = (function () {
         this.limitOptions = constants_1.limitOptions;
         this.spread = constants_1.spread;
         this.spreadOptions = constants_1.spreadOptions;
+        this.title = constants_1.title;
+        this.subtitle = constants_1.subtitle;
     }
     ExplorationViewer.prototype.update = function (event) {
         var _this = this;
@@ -96,6 +98,11 @@ var ExplorationViewer = (function () {
         var _this = this;
         this._dataService.config().subscribe(function (configObj) {
             _this.thresholds = configObj.thresholds ? configObj.thresholds : [];
+            console.log("The config obj:", configObj);
+            if (configObj.title && configObj.subtitle) {
+                _this.title = configObj.title;
+                _this.subtitle = configObj.subtitle;
+            }
         });
         this._dataService.getData(this.currentDate).subscribe(function (processedData) {
             _this.stocks = processedData[0], _this.metaDefs = processedData[1], _this.futureDates = processedData[2], _this.cpMetaDefs = processedData[3], _this.benchmarks = processedData[4];

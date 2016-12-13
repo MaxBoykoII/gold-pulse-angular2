@@ -3,17 +3,17 @@ var request = require('request');
 
 var app = express();
 
-/*GoldMinerPulse API urls*/
+/* GoldMinerPulse API urls*/
 var demo_base = 'http://goldminerpulse.com/ngp/edp-api-v3a.php?';
 var valid_dates = 'http://goldminerpulse.com/ngp/valid-dates-api.php';
 
 /* API for configuring app */
-var configAPI = 'https://www.goldminerpulse.com/_demo789/config.php';
+var configAPI = 'http://goldminerpulse.com/ngp/config.php';
 
-/*serve public */
+/* serve public */
 app.use(express.static(__dirname + '/public'));
 
-/*routes for querys and valid dates*/
+/* routes for querys and valid dates*/
 app.get('/edp-api-v3a.php', (req, res) => {
     var ymd = req.query.m;
     var hp = req.query.hp;

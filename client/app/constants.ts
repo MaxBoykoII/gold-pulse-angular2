@@ -13,7 +13,9 @@ const excluded = ['t', 'n', 'id'],
     gapOptions = [22, 43, 63, 127, 253],
     spread = 0,
     spreadOptions = [0, 1 / 8, 1 / 4, 1 / 2, 3 / 4, 1],
-    defaultSelection = 'm3';
+    defaultSelection = 'm3',
+    title = 'TSX/TSXv Gold Exp/Dev',
+    subtitle = 'Data Exploration Tool';
 
 export {
     excluded,
@@ -28,5 +30,7 @@ export {
     gapOptions,
     spread,
     spreadOptions,
-    defaultSelection
+    defaultSelection,
+    title,
+    subtitle
 };

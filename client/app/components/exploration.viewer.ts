@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import * as _ from 'lodash';
 
@@ -9,7 +9,9 @@ import {
   limitOptions,
   start,
   spread,
-  spreadOptions
+  spreadOptions,
+  title,
+  subtitle
 }
 from '../constants';
 
@@ -39,10 +41,8 @@ from '../pipes/shorten.pipe';
   templateUrl: './templates/exploration.viewer.html',
   styleUrls: ['./css/exploration.viewer.css']
 })
-export class ExplorationViewer {
-  constructor(private _dataService: DataService) {
-
-  }
+export class ExplorationViewer implements OnInit {
+  constructor(private _dataService: DataService) {}
   currentDate = start
   hp = hp
   stocks = []
@@ -57,6 +57,8 @@ export class ExplorationViewer {
   limitOptions = limitOptions
   spread = spread
   spreadOptions = spreadOptions
+  title = title
+  subtitle = subtitle
   update(event) {
     /* The event is either an update to the current date or an update to the holding period. */
     if (isNaN(event)) {
@@ -134,6 +136,11 @@ export class ExplorationViewer {
   ngOnInit() {
     this._dataService.config().subscribe(configObj => {
       this.thresholds = configObj.thresholds ? configObj.thresholds : [];
+      console.log("The config obj:", configObj);
+      if (configObj.title && configObj.subtitle){
+        this.title = configObj.title;
+        this.subtitle = configObj.subtitle;
+      }
     });
 
     this._dataService.getData(this.currentDate).subscribe((processedData) => {
