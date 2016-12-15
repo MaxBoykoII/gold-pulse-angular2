@@ -10,8 +10,8 @@ var valid_dates = 'http://goldminerpulse.com/ngp/valid-dates-api.php';
 /* API for configuring app */
 var configAPI = 'http://goldminerpulse.com/ngp/config.php';
 
-/* serve public */
-app.use(express.static(__dirname + '/public'));
+/* serve public or public-prod */
+process.env.PROD ? app.use(express.static(__dirname + '/public-prod')) : app.use(express.static(__dirname + '/public'));
 
 /* routes for querys and valid dates*/
 app.get('/edp-api-v3a.php', (req, res) => {

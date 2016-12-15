@@ -1,0 +1,32 @@
+{
+  "name": "easyfont-oswald",
+  "homepage": "https://github.com/easyfont/oswald",
+  "authors": [
+    "kdawson133 <kdawson133@gmail.com>"
+  ],
+  "description": "Easy font oswald",
+  "main": "oswald.css",
+  "moduleType": [],
+  "keywords": [
+    "oswald",
+    "font"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "5a5ecb2e72",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5a5ecb2e720f8e42db26815cb8dde898d49869f7"
+  },
+  "_source": "git://github.com/easyfont/oswald.git",
+  "_target": "*",
+  "_originalSource": "easyfont/oswald",
+  "_direct": true
+}

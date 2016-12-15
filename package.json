@@ -25,6 +25,10 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-sass": "^2.3.2",
     "node-sass": "^3.8.0",
+    "rollup": "^0.37.0",
+    "rollup-plugin-commonjs": "^6.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
     "typescript": "^2.0.2",
     "typings": "1.0.4",
     "uglifyjs": "^2.4.10"

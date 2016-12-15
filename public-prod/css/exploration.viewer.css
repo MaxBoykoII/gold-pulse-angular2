@@ -1,0 +1,14 @@
+.navbar .navbar-brand {
+  text-transform: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .navbar .navbar-brand span {
+    padding-left: 0.33333em; }
+
+h1,
+h2 {
+  text-align: center; }

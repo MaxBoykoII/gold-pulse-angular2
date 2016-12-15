@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' type='text/css' href='./lib/bower_components/easyfont-oswald/css/oswald.css'>
+    <link rel='stylesheet' type='text/css' href='./lib/bower_components/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' href='./lib/bower_components/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' type='text/css' href='./css/main.css'>
+    <link rel="icon" type="image/png" href="https://www.goldminerpulse.com/favicon.ico">
+    <title>Exploration Viewer</title>
+</head>
+
+<body class="extra-padding">
+    <exploration-viewer class="container-fluid"></exploration-viewer>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="./lib/core-js/client/shim.min.js"></script>
+
+    <!-- Load Angular2 libraries -->
+    <script src="./lib/zone.js/dist/zone.js"></script>
+    <script src="./lib/reflect-metadata/Reflect.js"></script>
+
+    <!-- Load Bower Components, lodash and d3 -->
+    <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./lib/lodash/lodash.min.js"></script>
+    <script src="./lib/d3/build/d3.min.js"></script>
+
+    <!-- Load bundle -->
+    <script src="./dist/build.js"></script>
+</body>
+</html>

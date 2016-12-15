@@ -1,0 +1,22 @@
+{
+  "name": "easyfont-oswald",
+  "homepage": "https://github.com/easyfont/oswald",
+  "authors": [
+    "kdawson133 <kdawson133@gmail.com>"
+  ],
+  "description": "Easy font oswald",
+  "main": "oswald.css",
+  "moduleType": [],
+  "keywords": [
+    "oswald",
+    "font"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

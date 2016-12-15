@@ -1,0 +1,54 @@
+<div class="well table-responsive">
+    <table class="table table-striped table-condensed">
+        <caption>
+            <p>Average returns by metric for top {{displayed? displayed.length : limit}} stocks on {{currentDate}}</p>
+            <br>
+            <ul class="legend">
+                <li><span class="q1"></span> Quartile 1</li>
+                <li><span class="q2"></span> Quartile 2</li>
+                <li><span class="q3"></span> Quartile 3</li>
+                <li><span class="q4"></span> Quartile 4</li>
+            </ul>
+        </caption>
+        <thead>
+            <tr>
+                <td> Reference Date</td>
+                <td> Limit</td>
+                <td> Spread</td>
+                <td *ngFor='let metaDef of metaDefs | metric' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='select($event, metaDef.sid)' data-toggle="tooltip" [title]="metaDef.full">{{metaDef.short}}</a></td>
+                <td *ngFor='let cpMetaDef of cpMetaDefs'>{{cpMetaDef.short}}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{currentDate}}</td>
+                <td>{{limit}}</td>
+                <td>{{spread}}</td>
+                <td *ngFor='let metaDef of metaDefs | metric' [ngClass]='colorMetricAvg(metaDef)'>{{ metricAverages[metaDef.sid] | cpercent}}</td>
+                <td *ngFor='let cpMetaDef of cpMetaDefs'>{{benchmarks[cpMetaDef.sid]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="well table-responsive">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid'><a href="" [class.highlight]='selection === metaDef.sid' (click)='select($event, metaDef.sid)' data-toggle="tooltip" [title]="metaDef.full">{{metaDef.short}}</a></td>
+                <td *ngFor='let ymd of futureDates'>{{ymd}}</td>
+                <td *ngIf='futureDates.length > 1'>Average</td>
+            </tr>
+        </thead>
+        <tbody *ngIf='stocks.length'>
+            <tr *ngFor='let stock of stocks |threshold: thresholds | sort: selection:metaDefs| slice:0:limit; let i = index'>
+                <td>{{i + 1}}</td>
+                <td *ngFor='let metaDef of metaDefs' [class.highlight]='selection === metaDef.sid' [class.table-right]="metaDef.sid !== 't' && metaDef.sid !== 'n'">{{stock[metaDef.sid] | format : metaDef.ordinal : metaDef.sid}}</td>
+                <td *ngFor='let ymd of futureDates' [ngClass]='colorDates(stock, ymd)' class='table-right'>{{stock.closes | match: ymd}}</td>
+                <td *ngIf='futureDates.length > 1' [ngClass]='colorStockAvg(stock)'>{{stockAverages[stock.id] | cpercent}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

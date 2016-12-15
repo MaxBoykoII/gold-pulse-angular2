@@ -1,0 +1,27 @@
+:host {
+    text-align: center;
+}
+
+.invalid {
+    border-color: #FA787E;
+}
+
+.valid {
+    border-color: #509558;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+input {
+    text-align: center;
+    width: 90%;
+}
+
+.btn-primary {
+    margin-right: 2%;
+    margin-left: -1%;
+}

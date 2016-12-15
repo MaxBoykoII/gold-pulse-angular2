@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Oswald Light";
+  font-style: "normal";
+  font-weight: "300";
+  src: local(Oswald Light), local(Oswald-Light), url(../fonts/Oswald-Light.woff2) format("woff2"), url(../fonts/Oswald-Light.woff) format("woff"); }
+@font-face {
+  font-family: "Oswald Regular";
+  font-style: "normal";
+  font-weight: "400";
+  src: local(Oswald Regular), local(Oswald-Regular), url(../fonts/Oswald-Regular.woff2) format("woff2"), url(../fonts/Oswald-Regular.woff) format("woff"); }
+@font-face {
+  font-family: "Oswald Bold";
+  font-style: "normal";
+  font-weight: "700";
+  src: local(Oswald Bold), local(Oswald-Bold), url(../fonts/Oswald-Bold.woff2) format("woff2"), url(../fonts/Oswald-Bold.woff) format("woff"); }

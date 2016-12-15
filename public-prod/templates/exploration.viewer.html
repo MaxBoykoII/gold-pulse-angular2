@@ -1,0 +1,76 @@
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="https://www.goldminerpulse.com" target="_blank"><img src="https://www.goldminerpulse.com/favicon.ico" alt="Brand"/><span>GoldMinerPulse</span></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="http://goldminerpulse.com/_demo789/about.php" target="_blank">About <span class="sr-only">(current)</span></a></li>
+          <li><a href="http://www.goldminerpulse.com/_demo789/help.php" target="_blank">Help</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <!--Limit-->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">Limit to: {{limit}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li *ngFor='let option of limitOptions | shorten: stocks.length'><a href="#" (click)='limit = option'>{{option}}</a></li>
+              <li><a href="#" (click)='limit = stocks.length'>{{stocks.length}}</a>
+              </li>
+            </ul>
+          </li>
+          <!-- /Limit -->
+          <!-- Spread -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">Buy/Sell Spread in cents: {{spread}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li *ngFor='let option of spreadOptions'><a href="#" (click)='modifySpread(option)'>{{option}}</a></li>
+            </ul>
+          </li>
+          <!-- /Spread -->
+          <!-- Thresholds -->
+          <li class=" dropdown" *ngFor='let threshold of thresholds'>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="" [title]="threshold.text?threshold.text : threshold.sid">{{threshold.short}} {{displayThreshold(threshold.sid)}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" (click)='deactivateThreshold(threshold.sid)'>none</a></li>
+              <li *ngFor='let gt of threshold.gt'><a href="#" (click)='activateThreshold(threshold.sid, "gt", gt)'> at least {{gt}}</a></li>
+              <li *ngFor='let lt of threshold.lt'><a href="#" (click)='activateThreshold(threshold.sid, "lt", lt)'> at most {{lt}}</a></li>
+              <li *ngFor='let eq of threshold.eq'><a href="#" (click)='activateThreshold(threshold.sid, "eq", eq)'>{{eq}}</a></li>
+            </ul>
+          </li>
+          <!-- /Thresholds -->
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+<div id="masthead">
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-7'>
+        <h1> {{title}} <p class='lead'>{{subtitle}}</p></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="well">
+  <date-component [currentDate]='currentDate' [hp]='hp' (updateHp)='update($event)' (updateCurrentDate)='update($event)'>
+  </date-component>
+</div>
+<!--row-->
+
+
+<stock-table [stocks]='stocks' [metaDefs]='metaDefs' [futureDates]='futureDates' [cpMetaDefs]='cpMetaDefs' [benchmarks]='benchmarks' [limit]='limit' [currentDate]='currentDate' [spread]='spread' [thresholds]='activeThresholds'></stock-table>
