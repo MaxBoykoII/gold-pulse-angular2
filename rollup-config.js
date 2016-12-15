@@ -11,7 +11,7 @@ export default {
    external: ['lodash', 'd3'],
   paths: {
     lodash: 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js',
-    path: 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'
+    d3: 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'
   },
   plugins: [
       nodeResolve({jsnext: true, module: true}),

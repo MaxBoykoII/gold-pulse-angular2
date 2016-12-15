@@ -41,13 +41,15 @@ export class DateComponent {
             }
         });
     }
-    flag(event) {
+    flag(event: string) {
         const invalid = isNaN(Date.parse(event));
         this.inputDate.valid = !invalid;
+        this.inputDate.ymd = event;
     }
-    updateYmd(ymd) {
+    updateYmd(ymd: string) {
         this.inputDate.ymd = ymd;
         this.updateCurrentDate.emit(this.inputDate.ymd);
+        this.flag(ymd);
     }
     updateHoldingPeriod(hpOption) {
         this.updateHp.emit(hpOption);

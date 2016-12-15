@@ -41,10 +41,12 @@ var DateComponent = (function () {
     DateComponent.prototype.flag = function (event) {
         var invalid = isNaN(Date.parse(event));
         this.inputDate.valid = !invalid;
+        this.inputDate.ymd = event;
     };
     DateComponent.prototype.updateYmd = function (ymd) {
         this.inputDate.ymd = ymd;
         this.updateCurrentDate.emit(this.inputDate.ymd);
+        this.flag(ymd);
     };
     DateComponent.prototype.updateHoldingPeriod = function (hpOption) {
         this.updateHp.emit(hpOption);
