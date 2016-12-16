@@ -44,7 +44,6 @@ export class DateComponent {
     flag(event: string) {
         const invalid = isNaN(Date.parse(event));
         this.inputDate.valid = !invalid;
-        this.inputDate.ymd = event;
     }
     updateYmd(ymd: string) {
         this.inputDate.ymd = ymd;

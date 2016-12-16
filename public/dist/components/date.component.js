@@ -41,7 +41,6 @@ var DateComponent = (function () {
     DateComponent.prototype.flag = function (event) {
         var invalid = isNaN(Date.parse(event));
         this.inputDate.valid = !invalid;
-        this.inputDate.ymd = event;
     };
     DateComponent.prototype.updateYmd = function (ymd) {
         this.inputDate.ymd = ymd;
