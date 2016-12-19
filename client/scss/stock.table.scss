@@ -1,0 +1,68 @@
+.highlight {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+a {
+    color: rgb(77, 117, 152);
+}
+
+table thead {
+    background-color: #FAF3DD;
+}
+
+.red {
+    background-color: rgb(245, 230, 224);
+}
+
+.yellow {
+    background-color: rgb(234, 227, 161);
+}
+
+.blue {
+    background-color: rgb(140, 175, 206);
+}
+
+.green {
+    background-color: rgb(161, 194, 153);
+}
+
+table caption {
+    width: 100%;
+    text-align: center;
+}
+
+.legend {
+    list-style: none;
+    display: inline-block;
+}
+
+.legend li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
+
+.legend .q1 {
+    background-color: rgb(245, 230, 224);
+}
+
+.legend .q2 {
+    background-color: rgb(234, 227, 161);
+}
+
+.legend .q3 {
+    background-color: rgb(140, 175, 206);
+}
+
+.legend .q4 {
+    background-color: rgb(161, 194, 153);
+}

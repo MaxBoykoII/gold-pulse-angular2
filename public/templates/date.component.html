@@ -1,5 +1,5 @@
 <form #date="ngForm" novalidate>
-    <label>Update {{currentDate}} to </label>
+    <label>Update {{currentDate}}</label>
     <span class='span-inline'>
     <label for='date-input'><small>{{min}} to {{max}}</small></label>
     <input type='text' id='date-input' name="ymd" placeholder='yyyy-mm-dd' [(ngModel)]='inputDate.ymd' (ngModelChange)='flag($event)' [class.valid]='inputDate.valid' [class.invalid]='!inputDate.valid'/>
@@ -15,8 +15,8 @@
             </li>
         </ul>
     </div>
-    <button class='btn primary align-up' (click)='increment("down")' [disabled]='currentDate === validDates[0]'>-</button>
-    <button class='btn primary align-up' (click)='increment("up")' [disabled]='currentDate === validDates[validDates.length - 1]'>+</button>
+    <button class='btn btn-primary align-up' (click)='increment("down")' [disabled]='currentDate === validDates[0]'>-</button>
+    <button class='btn btn-primary align-up' (click)='increment("up")' [disabled]='currentDate === validDates[validDates.length - 1]'>+</button>
     <div class='div-inline'>
         <ul class='nav nav-tabs'>
             <li class="active dropdown">

@@ -54,8 +54,12 @@ export class ExplorationViewer implements OnInit {
   thresholdTooltips: string[]
   activeThresholds = []
   limit = limit
+  limitText
+  limitTooltip
   limitOptions = limitOptions
   spread = spread
+  spreadTootlip
+  spreadText
   spreadOptions = spreadOptions
   title = title
   subtitle = subtitle
@@ -134,12 +138,24 @@ export class ExplorationViewer implements OnInit {
     return 'none';
   }
   ngOnInit() {
-    this._dataService.config().subscribe(configObj => {
-      this.thresholds = configObj.thresholds ? configObj.thresholds : [];
-      console.log("The config obj:", configObj);
-      if (configObj.title && configObj.subtitle){
-        this.title = configObj.title;
-        this.subtitle = configObj.subtitle;
+    this._dataService.config().subscribe(config => {
+      this.thresholds = config.thresholds ? config.thresholds : [];
+      console.log("The config obj:", config);
+      if (config.title && config.subtitle){
+        this.title = config.title;
+        this.subtitle = config.subtitle;
+      }
+      if (config.limit){
+        this.limit = config.limit.default;
+        this.limitOptions = config.limit.values;
+        this.limitTooltip = config.limit.tooltip;
+        this.limitText = config.limit.title;
+      }
+      if (config.spread){
+        this.spread = config.spread.default;
+        this.spreadOptions = config.spread.values;
+        this.spreadTootlip = config.spread.tooltip;
+        this.spreadText = config.spread.title;
       }
     });
 

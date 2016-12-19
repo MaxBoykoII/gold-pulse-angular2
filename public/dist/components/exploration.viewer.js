@@ -96,12 +96,24 @@ var ExplorationViewer = (function () {
     };
     ExplorationViewer.prototype.ngOnInit = function () {
         var _this = this;
-        this._dataService.config().subscribe(function (configObj) {
-            _this.thresholds = configObj.thresholds ? configObj.thresholds : [];
-            console.log("The config obj:", configObj);
-            if (configObj.title && configObj.subtitle) {
-                _this.title = configObj.title;
-                _this.subtitle = configObj.subtitle;
+        this._dataService.config().subscribe(function (config) {
+            _this.thresholds = config.thresholds ? config.thresholds : [];
+            console.log("The config obj:", config);
+            if (config.title && config.subtitle) {
+                _this.title = config.title;
+                _this.subtitle = config.subtitle;
+            }
+            if (config.limit) {
+                _this.limit = config.limit.default;
+                _this.limitOptions = config.limit.values;
+                _this.limitTooltip = config.limit.tooltip;
+                _this.limitText = config.limit.title;
+            }
+            if (config.spread) {
+                _this.spread = config.spread.default;
+                _this.spreadOptions = config.spread.values;
+                _this.spreadTootlip = config.spread.tooltip;
+                _this.spreadText = config.spread.title;
             }
         });
         this._dataService.getData(this.currentDate).subscribe(function (processedData) {

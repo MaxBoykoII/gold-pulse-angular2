@@ -1,5 +1,5 @@
 /*
- * A module that contains the default constants for the applications.
+ * A set of default constants for the applications.
  */
 const excluded = ['t', 'n', 'id'],
     hp = 63,

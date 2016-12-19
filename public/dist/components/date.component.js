@@ -74,8 +74,6 @@ var DateComponent = (function () {
             this.updateYmd(newCurrentDate);
         }
     };
-    DateComponent.prototype.ngOnChanges = function () {
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

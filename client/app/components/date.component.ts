@@ -84,7 +84,4 @@ export class DateComponent {
             this.updateYmd(newCurrentDate);
         }
     }
-    ngOnChanges() {
-
-    }
 }
